@@ -1,0 +1,36 @@
+// Deletes middle of linked list and returns head of the modified list
+Node* deleteMid(Node* head)
+{
+    Node *prev=head;
+    Node *curr=head;
+    
+    
+    if(head==NULL)
+    return head;
+    if(head->next==NULL){
+        
+            head=NULL;
+            return head;
+    }
+    
+
+    
+    int n=0;
+    while(prev!=NULL){
+        prev=prev->next;
+        n++;
+    }
+    prev=NULL;
+    n=n/2+1;
+    while(n!=1){
+        prev=curr;
+        curr=curr->next;
+        n--;
+    }
+    
+    prev->next=curr->next;
+    
+    return head;
+    }
+    
+    
