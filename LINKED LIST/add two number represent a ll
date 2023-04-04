@@ -1,0 +1,260 @@
+
+class Solution
+{
+    public:
+       pair<struct Node*, int> reverse(pair<struct Node*, int> head){
+
+        struct Node* curr = head.first;
+
+        struct Node* prev = NULL;
+
+        int len = 0;
+
+        
+
+        while(curr != NULL){
+
+            struct Node* temp = curr -> next;
+
+            curr -> next = prev;
+
+            prev = curr;
+
+            curr = temp;
+
+            len++;
+
+        }
+
+        head.first = prev;
+
+        head.second = len;
+
+        return head;
+
+    }
+    //Function to add two numbers represented by linked list.
+    struct Node* addTwoLists(struct Node* first, struct Node* second)
+    {
+        int len = 1;
+
+        pair<struct Node*, int>p;
+
+        p.first = first;
+
+        p.second = len;
+
+        
+
+        p = reverse(p); 
+
+        int len1 = p.second;
+
+        //return p.first;
+
+        first = p.first;
+
+        
+
+        
+
+        pair<struct Node*, int>p2;
+
+        p2.first = second;
+
+        p2.second = len;
+
+        
+
+        p2 = reverse(p2); 
+
+        int len2 = p2.second;
+
+        second = p2.first;
+
+        
+
+        struct Node* f = first;
+
+        struct Node* s = second;
+
+        int sum = 0;
+
+        
+
+        if(len2 > len1){
+
+            while(f != NULL){
+
+                sum = (f -> data) + (s -> data);
+
+                if(sum >= 10){
+
+                    if(s -> next == NULL){
+
+                        s -> data = (sum % 10);
+
+                        struct Node* newNode = new Node(1);
+
+                        newNode -> next = NULL;
+
+                        s -> next = newNode;
+
+                    }
+
+                    
+
+                    else{
+
+                        s -> data = (sum % 10);
+
+                        s -> next -> data += 1;
+
+                    }
+
+                }
+
+                else{
+
+                    s -> data = sum;
+
+                }
+
+                
+
+                f = f -> next;
+
+                s = s -> next;
+
+            }
+
+            
+
+            Node* s2 = second;
+
+            while(s2 -> next != NULL){
+
+                if(s2 -> data >= 10){
+
+                    s2 -> next -> data += 1;
+
+                    s2 -> data = (s2 -> data) % 10; 
+
+                }
+
+                s2 = s2 -> next;
+
+                if(s2 -> next == NULL && s2 -> data >= 10){
+
+                    struct Node* NewNode = new Node(1);
+
+                    s2 -> data = s2 -> data % 10;
+
+                    NewNode -> next = NULL;
+
+                    s2 -> next = NewNode;
+
+                    s2 = NewNode;
+
+                }
+
+            }
+
+            
+
+            second = reverse(p2).first;
+
+            return second;
+
+        }
+
+        
+
+        else{
+
+            while(s != NULL){
+
+                sum = (f -> data) + (s -> data);
+
+                if(sum >= 10){
+
+                    
+
+                    if(f -> next == NULL){
+
+                        f -> data = (sum % 10);
+
+                        struct Node* newNode = new Node(1);
+
+                        newNode -> next = NULL;
+
+                        f -> next = newNode;
+
+                    }
+
+                    
+
+                    else{
+
+                        f -> data = (sum % 10);
+
+                        f -> next -> data += 1;
+
+                    }
+
+                }
+
+                else{
+
+                    f -> data = sum;
+
+                }
+
+                f = f -> next;
+
+                s = s -> next;
+
+            }
+
+            
+
+            Node* f2 = first;
+
+            while(f2 -> next != NULL){
+
+                if(f2 -> data >= 10){
+
+                    f2 -> next -> data += 1;
+
+                    f2 -> data = (f2 -> data) % 10; 
+
+                }
+
+                f2 = f2 -> next;
+
+                if(f2 -> next == NULL && f2 -> data >= 10){
+
+                    struct Node* ewNode = new Node(1);
+
+                    f2 -> data = f2 -> data % 10;
+
+                    ewNode -> next = NULL;
+
+                    f2 -> next = ewNode;
+
+                    f2 = ewNode;
+
+                }
+
+            }
+
+            
+
+            first = reverse(p).first;
+
+            return first;
+
+        }
+
+    }
+    };
