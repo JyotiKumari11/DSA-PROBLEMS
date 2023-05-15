@@ -1,0 +1,19 @@
+string firstRepChar(string s)
+{
+    unordered_map<char,int>mp;
+    
+    for(int i=0;i<s.size();i++)
+    {
+        mp[s[i]]++;
+        
+        if(mp[s[i]]==2)
+        {
+            string st="";
+            st+=s[i];
+            return st;
+        }
+    }
+    return "-1";
+    
+    //code here.
+}
