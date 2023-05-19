@@ -1,0 +1,24 @@
+class Solution{
+    public:
+    int equilibriumPoint(long long a[], int n) {
+    
+  if(n==1)return 1;
+       if(n==2)return -1;
+       
+       int l = 0, r = n-1;
+       long long int suml = a[0], sumr = a[n-1];
+       
+       while(l < r){
+           if(l+2 == r && suml == sumr)
+               return l+2;
+               
+           if(suml <= sumr)
+               suml+=a[++l];
+           else if(suml > sumr)
+               sumr+=a[--r];
+       }
+       
+       return -1;
+   }
+
+};
