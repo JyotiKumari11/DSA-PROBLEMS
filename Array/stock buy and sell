@@ -1,0 +1,48 @@
+
+
+class Solution{
+public:
+    //Function to find the days of buying and selling stock for max profit.
+    vector<vector<int> > stockBuySell(vector<int> A, int n){
+         int prev_idx=0;
+
+     int mx=A[0];
+
+     vector<vector<int>>ans;
+
+     int cnt=-1;
+
+     vector<int>temp;
+
+     for(int i=1;i<n;i++){
+
+     if(A[i]>mx){
+
+     mx=A[i];
+
+     cnt=i;
+
+     }
+
+     else{
+
+         if(prev_idx!=i-1)
+
+         ans.push_back({prev_idx,i-1});
+
+     prev_idx=i;
+
+     mx=A[i];
+
+     }
+
+     }
+
+     if(cnt==n-1)
+
+     ans.push_back({prev_idx,cnt});
+
+     return ans;
+
+    }
+};
