@@ -1,0 +1,58 @@
+class Solution{
+public:
+
+	void rearrange(int arr[], int n) {
+	    // code here
+	     vector<int>v1;
+    vector<int>v2;
+    
+    for(int i=0;i<n;i++)
+    {
+        if(arr[i]>=0)
+        {
+            v1.push_back(arr[i]);
+        }
+        else
+        {
+            v2.push_back(arr[i]);
+        }
+  
+    }
+    
+    bool flag =true;
+    
+    int a=v1.size()-1;
+    int b=v2.size()-1;
+    
+    int j=0;
+    int k=0;
+    
+    for(int i=0;i<n;i++)
+    {
+          
+           if(flag) 
+           {
+               if(j>a) continue;
+               
+               if(k<=b)  flag=!flag;
+               
+               arr[i]=v1[j];
+               j++;
+           }
+           else
+           {
+               if(k>b) continue;
+               
+              if(j<=a) flag=!flag;
+              
+               arr[i]=v2[k];
+               k++;
+           }
+       
+       
+    }
+    
+   
+	    
+	}
+};
