@@ -1,0 +1,26 @@
+class Solution
+{
+  public:
+    string reverseEqn (string str)
+        {
+              string ans;
+            int n=str.size();
+            int i=n-1;
+            while(i >= 0){
+                if(str[i] == '+' || str[i] == '-' || str[i] == '*' || str[i] == '/'){
+                    ans.push_back(str[i]);
+                    i--;
+                }else{
+                    string temp="";
+                    while((str[i]-'0' >= 0) && (str[i]-'0' <= 9)){
+                        temp.push_back(str[i]);
+                        i--;
+                    }
+                    reverse(temp.begin(),temp.end());
+                    
+                    ans.append(temp);
+                }
+            }
+            return ans;
+        }
+          };
