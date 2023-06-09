@@ -1,0 +1,27 @@
+class Solution{
+public:	
+	// Function returns the second
+	// largest elements
+	int print2largest(int arr[], int n) {
+	    // code here
+	    int secmax=-1;
+	    int i=0;
+	    int max=-1;
+	    for(i=0;i<n;i++){
+	       // This line checks if the current element arr[i] is greater than the current maxi
+	        if(arr[i]>max){
+	           // This line updates the value of secmax to the previous value of max. It stores the previous maximum value as the second maximum.
+	        secmax=max;
+	       // this line updates the value of max to the current element arr[i]. It assigns the current element as the new maximum.
+	        max=arr[i];
+	    }
+	   // This line checks if the current element arr[i] is greater than the current second maximum secmax and less than the current maximum max.
+	    else if(secmax<arr[i] && arr[i]<max){
+	       // This line updates the value of secmax to the value of arr[i]. It assigns the current element as the new second maximum.
+	        secmax=arr[i];
+	    }
+	    }
+	    	return secmax;
+	}
+
+};
