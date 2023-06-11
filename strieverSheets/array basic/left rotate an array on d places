@@ -1,0 +1,10 @@
+class Solution{   
+public:
+    void leftRotate(int arr[], int N, int d) {
+        // code here
+        d=d%N;
+    reverse(arr, arr+d) ;
+    reverse(arr+d ,arr+N);
+    reverse(arr,arr+N); 
+    }
+};
