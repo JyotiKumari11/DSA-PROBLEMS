@@ -1,0 +1,17 @@
+class Solution{
+public:	
+	int search(int A[], int N){
+	    //code
+	     int sum=0;
+        for(int i=0;i<N;i++)
+        {
+            if(A[i]==A[i+1])
+            {
+                i++;
+                continue;
+            }
+            return A[i];
+        }
+    
+	}
+};
