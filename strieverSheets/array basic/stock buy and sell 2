@@ -1,0 +1,34 @@
+void stockBuySell(int price[], int n) {
+    
+    bool found = false;
+    int max = price[0], min = price[0], maxIndex = 0, minIndex = 0;
+    
+    for(int i=1; i<n; i++){
+        if(price[i] > max){
+            max = price[i];
+            maxIndex = i;
+        }
+        else if(price[i] < max){
+            if(max != min){
+                found = true;
+                cout<<"("<<minIndex<<" "<<maxIndex<<")"<<" ";
+            }
+            min = price[i];
+            minIndex = i;
+            max = price[i];
+            maxIndex = i;
+        }
+    }
+    
+
+   // For Last (min, max) pair because i will reach to n and we cannot    //print this in the loop
+    if(max > min){
+        cout<<"("<<minIndex<<" "<<maxIndex<<")";
+        found = true;
+    }
+    
+    if(!found){
+        cout<<"No Profit";
+    }
+    cout<<endl;
+}
