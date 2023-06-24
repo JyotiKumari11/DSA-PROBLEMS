@@ -1,0 +1,21 @@
+class Solution{
+public:	
+	int findKRotation(int arr[], int n) {
+	    // code here
+	     int low=0;
+	    int high=n-1;
+	    int mid;
+
+	    while(low<high){
+	        mid=(low+high)/2;
+	        if(arr[mid]>arr[high])
+	        low=mid+1;
+	        else
+	        high=mid;
+	    }
+
+	    return high;
+	
+	}
+
+};
