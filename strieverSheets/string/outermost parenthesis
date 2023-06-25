@@ -1,0 +1,34 @@
+class Solution {
+  public:
+    string removeOuter(string& s) {
+        // code here
+          stack<char>st;
+
+// DECLARING AN EMPTY STRING
+
+        string ans="";
+        for(int i=0;i<s.size();i++){
+            if(s[i]=='(')
+            {
+                //HERE ALWAYS PUSH THE ELEMENT OF STRING S INTO STACK //BUT ADD IN ANS ONLY WHEN STACK IS NOT EMPTY i.e STACK.SIZE > 1
+
+
+                st.push(s[i]);
+                if(st.size()>1)
+                ans+=s[i];
+            }
+            else
+            {
+
+
+               // AND WHENEVER WE ENCOUNTER WITH ')', WE HAVE TO POP //THE STACK AND ADD THE CHAR IN ANS ONLY WHEN STACK HAS ONLY ONE ELEMENT i.e THE OUTERMOST PARENTHESIS
+
+
+                if(st.size()>1)
+                ans+=s[i];
+                st.pop();
+            }
+        }
+return ans;
+}
+};
