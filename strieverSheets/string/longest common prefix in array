@@ -1,0 +1,43 @@
+class Solution{
+  public:
+    
+    string longestCommonPrefix (string arr[], int N)
+    {
+          string st = arr[0];
+
+        string fst = "";
+
+        int size;
+
+        for(int i = 1; i < N; i++)
+
+        {
+
+            for(int j = 0; st[j]!='\0' && arr[i][j]!='\0'; j++)
+
+            {
+
+                if(st[j]==arr[i][j])
+
+                    fst+=st[j];
+
+                else
+
+                    break;
+
+            }
+
+            st = fst;
+            
+            fst = "";
+
+        }
+
+        if(st!="")
+
+            return st;
+
+        return "-1";
+        // your code here
+    }
+};
