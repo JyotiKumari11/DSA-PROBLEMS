@@ -1,0 +1,28 @@
+Node* deleteNode(Node *head,int x)
+{
+     int i=1;
+    //  two variabel ek link krne wle ek join krne wla
+    Node *temp1=head;
+    Node *temp2=head;
+    // for traversing ke lye hai
+    while(i<x){
+        temp1=temp2;
+        temp2=temp2->next;
+        // yha temp 1 ko delete kr diya gya 
+        i++;
+        
+    }
+    // ye starting wle ke liye
+       if(temp1==temp2){
+           head=head->next;
+       }
+       //yha temp2 khtm ho gya mtlb h ki last wla node
+       else if(temp2->next==NULL){
+           temp1->next=NULL;
+       }
+       else{
+           temp1->next=temp2->next;
+       }
+       return head;
+    //Your code here
+}
