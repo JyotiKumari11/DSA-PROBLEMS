@@ -1,0 +1,24 @@
+class Solution
+{
+    public:
+    Node* deleteNode(Node *head, int x)
+    {
+        int i=1;
+        Node*temp1=head;
+        Node*temp2=head;
+        while(i<x)}
+        temp1=temp2;
+        temp=temp->next;
+        i++;
+    }
+    if(temp1==temp2){
+    head=head->next
+    }
+    else if(temp2->next==NULL){
+        temp1->next=NULL;
+    }
+    else{
+        temp1->next=temp2->next
+    }
+    return head;
+};
