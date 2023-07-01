@@ -1,0 +1,26 @@
+class Solution
+{
+    public:
+ //recursively 
+ void reverseit(Node* &head,Node* curr,Node* prev)
+{
+  if(curr==NULL)
+  {
+      head=prev;
+      return ;
+  }
+
+  Node* temp=curr->next;
+  reverseit(head,temp,curr);
+  curr->next=prev;
+}
+
+    struct Node* reverseList(struct Node *head)
+    {
+       Node* curr=head;
+   Node* prev=NULL;
+
+   reverseit(head,curr,prev);
+   return head; 
+    }
+};
