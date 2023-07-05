@@ -1,0 +1,29 @@
+#include<vector>
+
+class Solution
+{
+    public:
+    //Function to sort a linked list of 0s, 1s and 2s.
+    Node* segregate(Node *head) {
+        
+        vector<int> v;
+        Node *curr=head;
+        
+        int count=0;
+        while(curr!=NULL){
+            v.push_back(curr->data);
+            curr=curr->next;
+            count++;
+        }
+        sort(v.begin(),v.end());
+        curr=head;
+        int i=0;
+        while(count--){
+            curr->data=v[i++];
+            curr=curr->next;
+    }
+        return head;
+        // Add code here
+        
+    }
+};
