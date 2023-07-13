@@ -1,0 +1,19 @@
+class Solution
+{
+    public:
+    bool isFrequencyUnique(int n, int arr[])
+    {
+       map<int,int> mp;
+        for (int i=0; i<n; i++){
+            mp[arr[i]]++;
+        }
+        set<int> st;
+        for (auto val: mp){
+            if (st.find(val.second)== st.end()){
+                st.insert(val.second);
+            }
+            else return false;
+        }
+        return true; 
+    }
+};
